@@ -1,6 +1,8 @@
-button = document.getElementById("#button1");
+document.onclick= function(event) {
+    // Compensate for IE<9's non-standard event model
+    //
+    if (event===undefined) event= window.event;
+    var target= 'target' in event? event.target : event.srcElement;
 
-button.addEventListener("click", (event) => {
-      window.Open("https://gpu.userbenchmark.com/Compare/Nvidia-RTX-4070-S-Super-vs-Nvidia-RTX-3060-Ti/4154vs4090")
-      console.log("yes")
-});
+    alert('clicked on '+target.tagName);
+};
